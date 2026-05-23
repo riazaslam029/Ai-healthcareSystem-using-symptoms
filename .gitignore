@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.vscode/
+
+# Data files (can be re-downloaded)
+data/*.csv
+outputs/cleaned_dataset.csv
+
+# Model artifacts
+models/*.joblib

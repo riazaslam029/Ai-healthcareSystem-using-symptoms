@@ -1,0 +1,27 @@
+{
+  "_default": [
+    "Rest and stay hydrated",
+    "Monitor symptoms",
+    "Seek medical advice if symptoms persist"
+  ],
+  "Common Cold": [
+    "Drink warm fluids",
+    "Get adequate sleep",
+    "Use saline nasal spray"
+  ],
+  "Influenza": [
+    "Rest and isolate if contagious",
+    "Stay hydrated",
+    "Consult a doctor for high fever"
+  ],
+  "Migraine": [
+    "Rest in a dark room",
+    "Avoid loud noise",
+    "Stay hydrated"
+  ],
+  "Gastroenteritis": [
+    "Drink oral rehydration solution",
+    "Eat bland foods",
+    "Avoid dairy and spicy foods"
+  ]
+}
