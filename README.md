@@ -1,49 +1,92 @@
-# AI-Based Health Symptom Checker and Disease Prediction
+# 🩺 AI-Based Health Symptom Checker & Disease Prediction
 
-A symptom-based disease prediction system with a simple Streamlit UI. The pipeline cleans a dataset, trains an ML model, and shows top-3 predictions with precaution tips.
+<img src="https://img.icons8.com/fluency/96/000000/robot-2--v2.png" width="60" align="right" alt="AI Healthcare Icon">
 
-## Highlights
-- Symptom text input with top-3 ranked predictions
-- TF-IDF + Logistic Regression baseline
-- Dataset cleaning and preprocessing
-- Optional precaution hints in the UI
+Welcome to the **AI HealthCare System** — an intelligent application designed to predict diseases based on user-provided symptoms. Powered by machine learning, it features an intuitive [Streamlit](https://streamlit.io/) interface and real-time precaution tips.
 
-## Quick Start
-```bash
-pip install -r requirements.txt
+---
+
+## 🚀 Features
+
+- 🤖 **AI-Powered Disease Prediction**  
+  Input symptoms as text; receive the top 3 ranked disease predictions within seconds!
+- 🧑‍⚕️ **Precautionary Tips**  
+  Get actionable medical precautions along with predictions.
+- 🧹 **Smart Data Processing**  
+  Automatic dataset cleaning and preparation for best model performance.
+- 🔬 **ML Pipeline**  
+  Baseline pipeline using TF-IDF + Logistic Regression.
+
+---
+
+## 🏃 Quick Start
+
+1. **Install requirements**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Train the Model**
+
+   ```bash
+   python -m src.train
+   ```
+
+3. **Launch the App**
+
+   ```bash
+   streamlit run app.py
+   ```
+
+---
+
+## 📁 Dataset Format
+
+- Place your CSV at `data/dataset.csv`.
+- Supported formats:
+  - **Text format**: columns like `symptoms`, `disease`
+  - **Binary format**: many symptom columns (0/1) + a label like `prognosis`
+  - **Multi-column format**: `symptom_1`, `symptom_2`, ... + a label column
+
+ℹ️ More details in [`data/dataset_info.md`](data/dataset_info.md).
+
+---
+
+## 📊 Outputs
+
+| File                                       | Description             |
+|---------------------------------------------|-------------------------|
+| `outputs/confusion_matrix.png`              | Model performance plot  |
+| `outputs/cleaned_dataset.csv`               | Cleaned, formatted data |
+| `models/symptom_model.joblib`               | Trained model           |
+| `models/tfidf_vectorizer.joblib`            | Text vectorizer         |
+
+---
+
+## 🗂 Project Structure
+
+```
+├── app.py                  # Streamlit UI
+├── src/
+│   ├── train.py            # Model training and evaluation
+│   └── data_utils.py       # Data loading & cleaning
+├── data/                   # Dataset files & precautions
+├── models/                 # Saved ML artifacts
+├── outputs/                # Metrics and plots
 ```
 
-Train the model:
-```bash
-python -m src.train
-```
+---
 
-Run the app:
-```bash
-streamlit run app.py
-```
+## ⚠️ Disclaimer
 
-## Dataset Format
-Place your CSV at data/dataset.csv. Supported formats:
-- Text format: columns like `symptoms` + `disease`
-- Binary format: many symptom columns (0/1) + label column like `prognosis`
-- Multi-column format: `symptom_1`, `symptom_2`, ... + label column like `disease`
+This project is for **educational use only** and **not** intended as medical advice.  
+For any health concerns, always consult a qualified medical professional.
 
-Details and source notes are in data/dataset_info.md.
+---
 
-## Outputs
-- outputs/confusion_matrix.png
-- outputs/cleaned_dataset.csv
-- models/symptom_model.joblib
-- models/tfidf_vectorizer.joblib
-
-## Project Layout
-- app.py: Streamlit UI
-- src/train.py: Training and evaluation
-- src/data_utils.py: Data loading and cleaning
-- data/: Dataset files and precautions
-- models/: Saved model artifacts
-- outputs/: Metrics and plots
-
-## Notes
-This project is for educational use only and is not medical advice.
+<p align="center">
+  <img src="https://img.icons8.com/fluency/48/000000/health-graph.png"/>
+  <img src="https://img.icons8.com/fluency/48/000000/artificial-intelligence.png"/>
+  <img src="https://img.icons8.com/fluency/48/000000/doctor-male.png"/>
+</p>
