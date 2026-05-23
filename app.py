@@ -1,6 +1,8 @@
 import csv
 import json
 import os
+import subprocess
+import sys
 
 import joblib
 import numpy as np
@@ -18,6 +20,29 @@ def load_artifacts():
     model = joblib.load(MODEL_PATH)
     vectorizer = joblib.load(VECTORIZER_PATH)
     return model, vectorizer
+
+
+def train_model_if_missing():
+    if os.path.exists(MODEL_PATH) and os.path.exists(VECTORIZER_PATH):
+        return True
+
+    if st.session_state.get("auto_trained"):
+        return False
+
+    st.session_state["auto_trained"] = True
+    with st.spinner("Training model (first run)..."):
+        result = subprocess.run(
+            [sys.executable, "-m", "src.train"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    if result.returncode != 0:
+        st.error("Model training failed. Please check the logs.")
+        if result.stderr:
+            st.code(result.stderr)
+        return False
+    return True
 
 
 def load_precautions():
@@ -72,8 +97,15 @@ def main():
 
     model, vectorizer = load_artifacts()
     if model is None:
-        st.warning("Model artifacts not found. Please train the model first by running: python -m src.train")
-        return
+        if not train_model_if_missing():
+            st.warning(
+                "Model artifacts not found. Please train the model first by running: python -m src.train"
+            )
+            return
+        model, vectorizer = load_artifacts()
+        if model is None:
+            st.error("Model artifacts still missing after training.")
+            return
 
     precautions = load_precautions()
 
