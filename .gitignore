@@ -3,8 +3,7 @@ __pycache__/
 *.pyc
 .vscode/
 
-# Data files (can be re-downloaded)
-data/*.csv
+# Data files
 outputs/cleaned_dataset.csv
 
 # Model artifacts
