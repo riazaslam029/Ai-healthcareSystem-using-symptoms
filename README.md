@@ -1,129 +1,145 @@
-# 🩺 AI-Based Health Symptom Checker & Disease Prediction
+<div align="center">
+  <img src="https://img.icons8.com/fluency/96/medical-doctor.png" alt="AI Healthcare" width="84" />
+  <h1>AI Health Symptom Checker</h1>
+  <p>Machine-learning powered disease prediction from user-provided symptoms.</p>
 
-<img src="https://img.icons8.com/fluency/96/000000/robot-2--v2.png" width="60" align="right" alt="AI Healthcare Icon">
+  <p>
+    <a href="https://ai-healthcaresystem-using-symptoms-fdcjyrq9ssajzncvsvvhbg.streamlit.app/"><img src="https://img.shields.io/badge/Live%20Demo-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live demo" /></a>
+    <a href="https://github.com/riazaslam029/Ai-healthcareSystem-using-symptoms"><img src="https://img.shields.io/github/stars/riazaslam029/Ai-healthcareSystem-using-symptoms?style=for-the-badge&logo=github&label=Stars" alt="GitHub stars" /></a>
+    <a href="https://github.com/riazaslam029/Ai-healthcareSystem-using-symptoms/issues"><img src="https://img.shields.io/github/issues/riazaslam029/Ai-healthcareSystem-using-symptoms?style=for-the-badge&logo=github" alt="Open issues" /></a>
+  </p>
 
-Welcome to the **AI HealthCare System** — an intelligent machine learning application that predicts diseases based on user-provided symptoms. Built with **Python**, **Scikit-learn**, and **Streamlit**, it provides real-time disease predictions along with precautionary recommendations through an intuitive web interface.
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.9+" />
+    <img src="https://img.shields.io/badge/Streamlit-App-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" alt="Streamlit" />
+    <img src="https://img.shields.io/badge/scikit--learn-ML-F7931E?style=flat-square&logo=scikit-learn&logoColor=white" alt="scikit-learn" />
+    <img src="https://img.shields.io/badge/Status-Educational-2EA44F?style=flat-square" alt="Educational project" />
+  </p>
+</div>
 
----
+> **Important:** This project is intended for educational and research purposes only. It does not provide medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for health concerns.
 
-## 🌐 Live Demo
+## ✨ Overview
 
-**🚀 Try the Application:**  
-https://ai-healthcaresystem-using-symptoms-fdcjyrq9ssajzncvsvvhbg.streamlit.app/
-
-**💻 GitHub Repository:**  
-https://github.com/riazaslam029/Ai-healthcareSystem-using-symptoms
-
----
+**AI Health Symptom Checker** is a lightweight Python application that transforms a user’s symptom description into a ranked list of likely conditions. It combines TF-IDF text features with Logistic Regression and presents the top three predictions and related precautionary guidance through an interactive Streamlit interface.
 
 ## 🚀 Features
 
-- 🤖 **AI-Powered Disease Prediction**  
-  Input symptoms as text and receive the **Top 3 most likely disease predictions** within seconds.
+- 🤖 **Top-three predictions** from a natural-language symptom description
+- 🧠 **TF-IDF + Logistic Regression** classification pipeline
+- 🧹 **Dataset normalization** for supported symptom/disease CSV formats
+- 🩺 **Precautionary guidance** loaded from JSON or CSV data
+- 📊 **Training evaluation** with accuracy, classification metrics, and a confusion matrix
+- ⚡ **Automatic first-run training** when model artifacts are unavailable
+- 🖥️ **Simple Streamlit UI** for quick local or hosted demos
 
-- 🧑‍⚕️ **Precautionary Recommendations**  
-  Get practical health precautions associated with the predicted diseases.
+## 🌐 Live Demo
 
-- 🧹 **Smart Data Processing**  
-  Automatic dataset cleaning and preprocessing for improved prediction accuracy.
+Try the deployed application: **[AI Health Symptom Checker](https://ai-healthcaresystem-using-symptoms-fdcjyrq9ssajzncvsvvhbg.streamlit.app/)**
 
-- 🔬 **Machine Learning Pipeline**  
-  Built using **TF-IDF Vectorization** and **Logistic Regression** for reliable text classification.
+## 🛠️ Technology Stack
 
-- ⚡ **Interactive Web Interface**  
-  Clean and responsive Streamlit application for an enhanced user experience.
+| Area | Tools |
+| --- | --- |
+| Language | Python |
+| User interface | Streamlit |
+| Machine learning | scikit-learn, TF-IDF, Logistic Regression |
+| Data processing | pandas, NumPy |
+| Model persistence | joblib |
+| Evaluation and visualization | Matplotlib, Seaborn |
 
----
+## ⚙️ Getting Started
 
-## 🏃 Quick Start
+### Prerequisites
 
-### 1️⃣ Install Requirements
+- Python 3.9 or newer
+- `pip`
+
+### Installation
 
 ```bash
+git clone https://github.com/riazaslam029/Ai-healthcareSystem-using-symptoms.git
+cd Ai-healthcareSystem-using-symptoms
+python -m venv .venv
+
+# macOS/Linux
+source .venv/bin/activate
+
+# Windows PowerShell
+# .venv\Scripts\Activate.ps1
+
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Train the Model
+### Train the model
 
 ```bash
 python -m src.train
 ```
 
-### 3️⃣ Launch the Application
+Training creates the serialized model and vectorizer in `models/`, together with cleaned data and evaluation outputs in `outputs/`.
+
+### Launch the application
 
 ```bash
 streamlit run app.py
 ```
 
----
+If model artifacts are missing, the application attempts to train the model automatically on its first run.
 
-## 📁 Dataset Format
+## 🧪 Example Input
 
-Place your dataset inside:
+Enter symptoms as comma-separated text, for example:
 
-```
-data/dataset.csv
-```
-
-Supported formats:
-
-- **Text Format** → `symptoms`, `disease`
-- **Binary Format** → Symptom columns (0/1) + `prognosis`
-- **Multi-column Format** → `symptom_1`, `symptom_2`, ... + disease label
-
-More details are available in:
-
-```
-data/dataset_info.md
+```text
+fever, headache, fatigue
 ```
 
----
+The application returns the three highest-probability predictions and displays available precautions for each result.
 
-## 📊 Outputs
+## 📁 Project Structure
 
-| File | Description |
-|------|-------------|
-| `outputs/confusion_matrix.png` | Model performance visualization |
-| `outputs/cleaned_dataset.csv` | Cleaned dataset |
-| `models/symptom_model.joblib` | Trained ML model |
-| `models/tfidf_vectorizer.joblib` | TF-IDF vectorizer |
-
----
-
-## 🗂 Project Structure
-
-```
-├── app.py                  # Streamlit Web App
+```text
+├── app.py                         # Streamlit application
+├── data/
+│   ├── dataset.csv                # Training data
+│   ├── precautions.json           # Precautionary guidance
+│   └── dataset_info.md            # Dataset format notes
+├── models/
+│   ├── symptom_model.joblib       # Trained classifier
+│   └── tfidf_vectorizer.joblib    # Fitted TF-IDF vectorizer
+├── outputs/
+│   ├── cleaned_dataset.csv        # Normalized training data
+│   ├── metrics.json               # Evaluation metrics
+│   └── confusion_matrix.png       # Evaluation visualization
 ├── src/
-│   ├── train.py            # Model Training
-│   └── data_utils.py       # Data Processing
-├── data/                   # Dataset & Precautions
-├── models/                 # Saved ML Models
-├── outputs/                # Evaluation Results
+│   ├── data_utils.py              # Dataset loading and cleaning
+│   └── train.py                   # Training and evaluation pipeline
 ├── requirements.txt
 └── README.md
 ```
 
----
+## 📊 Supported Dataset Formats
 
-## ⚠️ Disclaimer
+The data loader supports common layouts including:
 
-This application is developed **for educational and research purposes only**.
+- `symptoms` + `disease` text columns
+- Binary symptom columns with a `prognosis` label
+- Multiple symptom columns such as `symptom_1`, `symptom_2`, and a disease label
 
-It should **not** be considered a substitute for professional medical diagnosis, treatment, or advice. Always consult a qualified healthcare professional for medical concerns.
+See [`data/dataset_info.md`](data/dataset_info.md) for the expected structure and preprocessing notes.
 
----
+## 🤝 Contributing
 
-<p align="center">
-  <img src="https://img.icons8.com/fluency/48/000000/health-graph.png"/>
-  <img src="https://img.icons8.com/fluency/48/000000/artificial-intelligence.png"/>
-  <img src="https://img.icons8.com/fluency/48/000000/doctor-male.png"/>
-</p>
+Contributions are welcome. Open an issue for a bug or feature request, or submit a pull request with a clear description of the change and any relevant validation results.
 
----
+## 📄 License
 
-## ⭐ Support
+No license has currently been specified for this repository. Add a license file before distributing or reusing the project outside its intended educational context.
 
-If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
-
-Your support helps others discover the project and motivates future improvements.
+<div align="center">
+  <br />
+  <strong>Built with Python, Streamlit, and scikit-learn.</strong>
+  <br />
+  <a href="https://github.com/riazaslam029/Ai-healthcareSystem-using-symptoms">⭐ Star the repository if you find it useful</a>
+</div>
