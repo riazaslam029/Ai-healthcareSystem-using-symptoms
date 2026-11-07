@@ -135,7 +135,7 @@ Contributions are welcome. Open an issue for a bug or feature request, or submit
 
 ## 📄 License
 
-No license has currently been specified for this repository. Add a license file before distributing or reusing the project outside its intended educational context.
+This project is released under the [MIT License](LICENSE). You are free to use, modify, and distribute the software, subject to the license terms.
 
 <div align="center">
   <br />
